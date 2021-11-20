@@ -1,3 +1,5 @@
+import sqlite3
+
 from Database import Database
 
 if __name__ == "__main__":
@@ -12,5 +14,5 @@ if __name__ == "__main__":
                 output = c.fetchall()
                 if output is not None:
                     print(output)
-            except:
-                print("Eroare")
+            except sqlite3.Error as e:
+                print(e)
