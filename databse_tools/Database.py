@@ -1,5 +1,6 @@
 import sqlite3
 
+# c.execute('SELECT name from sqlite_master where type= "table"')   --> show tables
 
 class Database:
     def __init__(self, database_file: str = ':memory:'):
@@ -15,7 +16,7 @@ class Database:
         if self.connection:
             self.connection.close()
 
-    def run_file(self, file_name: str):
+    def init_db(self, file_name: str = 'create_tables.txt'):
         data: list[str]
         with open(file_name, 'r') as f:
             data = f.readlines()
@@ -27,4 +28,10 @@ class Database:
 
 
 if __name__ == "__main__":
-    pass
+    dat = Database()
+    dat.init_db()
+
+    with dat as conn:
+        c = conn.cursor()
+        c.execute('SELECT name from sqlite_master where type= "table"')
+        print(c.fetchall())
