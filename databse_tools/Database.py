@@ -35,3 +35,15 @@ if __name__ == "__main__":
         c = conn.cursor()
         c.execute('SELECT name from sqlite_master where type= "table"')
         print(c.fetchall())
+
+        c.execute('SELECT * FROM CATALOAGE')
+        print(c.fetchall())
+
+        c.execute('SELECT * FROM FACULTATI')
+        print(c.fetchall())
+
+        c.execute('SELECT * FROM PROFESORI')
+        print(c.fetchall())
+
+        c.execute('SELECT * FROM ELEVI')
+        print(c.fetchall())
