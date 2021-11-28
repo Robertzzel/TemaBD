@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Modificare </title>
+{% endblock %}
+
+
+{% block body %}
+
+
+<form action="" method="POST">
+
+  <div class="form-group">
+    <label for="{{headers[0]}}">{{headers[0]}}</label>
+    <input class="form-control" name="{{headers[0]}}" id="{{headers[0]}}" placeholder="{{data[0]}}" value="{{data[0]}}" readonly>
+  </div>
+
+    {% for i in range(1,len) %}
+    <div class="form-group">
+        <label for="{{headers[i]}}">{{headers[i]}}</label>
+        <input type="text" class="form-control" id="{{headers[i]}}" name="{{headers[i]}}" placeholder="{{data[i]}}" value="{{data[i]}}">
+    </div>
+    {% endfor %}
+
+    <input type="hidden" class="form-control" name="tabel" id="tabel" value="{{tabela}}">
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/" class="btn btn-danger">CANCEL</a>
+  </form>
+
+
+{% endblock %}
