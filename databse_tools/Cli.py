@@ -1,6 +1,6 @@
 import sqlite3
 
-from Database import Database
+from databse_tools import Database
 
 if __name__ == "__main__":
     path = input("'Database path'(to acces a database file) or ''(to create one in memory): ")
