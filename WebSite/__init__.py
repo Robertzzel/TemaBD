@@ -7,12 +7,11 @@ app = Flask(__name__)
 
 try:
     db = Database('database.db')
-    db.init_db('create_tables.txt')
+    db.run_file('create_tables.txt')
 except:
     print("database deja initializat")
 else:
     print("database initializat")
-
 
 
 def verificare_input(tabel: str, lista_parametri) -> bool:
@@ -76,7 +75,7 @@ def verificare_input(tabel: str, lista_parametri) -> bool:
         ultima_medie = lista_parametri[1]
 
         if nr_matricol.isalpha(): return False
-        if (not ultima_medie.isalpha()) and int(ultima_medie) > 0 and int(ultima_medie < 10): return False
+        if (not ultima_medie.isalpha()) or float(ultima_medie) <= 0 or float(ultima_medie) > 10: return False
 
         return True
 

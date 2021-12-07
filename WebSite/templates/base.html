@@ -6,8 +6,12 @@
     {% block head %} {% endblock %}
 </head>
 <body>
+    <!-- NAVBAR -->
     <div class="container-fluid bg-light">
         <div class="row text-center">
+            <div class="col ">
+                <a class="btn p-2" href="/"> <span>HOME</span> </a>
+            </div>
             <div class="col ">
                 <a class="btn p-2" href="/elevi"> <span>ELEVI</span> </a>
             </div>
@@ -22,7 +26,7 @@
             </div>
         </div>
     </div>
-
+    <!-- END NAVBAR -->
     <div class="container">
         {% block body %} {% endblock %}
     </div>

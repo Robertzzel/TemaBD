@@ -9,6 +9,7 @@ def view_data(table: str):
     if table.upper() in ("ELEVI", "PROFESORI", "CATALOAGE", "FACULTATI"): #verifica ca se cere ceva adevarat din tabela
         with sql.connect(DATABASE_NAME) as conn:
             c = conn.cursor()
+            c.execute("PRAGMA foreign_keys = ON")
             c.execute(f"select * from {table.capitalize()}")
             data = c.fetchall()
 
@@ -22,19 +23,22 @@ def sterge(tabela: str, id : int):
 
     with sql.connect(DATABASE_NAME) as conn:
         c = conn.cursor()
+        c.execute("PRAGMA foreign_keys = ON")
         c.execute(f"DELETE FROM {tabela.upper()} WHERE {id_type} = {id}")
+        conn.commit()
 
     return redirect("/")
 
 
 @app.route("/modifica/<string:tabela>/<int:id>", methods=["GET", "POST"])
-def modifica(tabela: str, id:int):
+def modifica(tabela: str, id: int):
 
     if request.method == "GET":
         id_type = get_id_type(tabela)
         numele_coloanelor, date_extrase = [], []
         with sql.connect(DATABASE_NAME) as conn:
             c = conn.cursor()
+            c.execute("PRAGMA foreign_keys = ON")
             c.execute(f"SELECT * FROM {tabela.upper()} WHERE {id_type} = {id}")
             date_extrase = c.fetchone()
             numele_coloanelor = [description[0] for description in c.description]         # scoate numele coloanelor pentru labeluri
@@ -62,7 +66,9 @@ def modifica(tabela: str, id:int):
 
             with sql.connect(DATABASE_NAME) as conn:
                 c = conn.cursor()
+                c.execute("PRAGMA foreign_keys = ON")
                 c.execute(command_string)
+                conn.commit()
 
     return redirect('/')
 
@@ -97,8 +103,9 @@ def adaugare(tabela:str):
 
             with sql.connect(DATABASE_NAME) as conn:
                 c = conn.cursor()
+                c.execute("PRAGMA foreign_keys = ON")
                 c.execute(command_string)
-
+                conn.commit()
 
     return redirect('/')
 
