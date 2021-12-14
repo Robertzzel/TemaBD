@@ -4,6 +4,7 @@ import sqlite3 as sql
 
 DATABASE_NAME = "database.db"
 app = Flask(__name__)
+app.secret_key = b'aplicatiePentruMateriaBazeDeDate'
 
 try:
     db = Database('database.db')

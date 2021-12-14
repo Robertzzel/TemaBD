@@ -7,108 +7,114 @@
 
 {% block body %}
 
-<form action="" method="POST">
+<div class="container">
 
-{% if type == "elevi" %}
+    <form action="" method="POST">
 
-    <div class="form-group">
-        <label for="NUMAR_MATRICOL">Numar Matricol</label>
-        <input class="form-control" name="NUMAR_MATRICOL" id="NUMAR_MATRICOL" >
-    </div>
+        {% if type == "elevi" %}
+        
+            <div class="form-group">
+                <label for="NUMAR_MATRICOL">Numar Matricol</label>
+                <input class="form-control" name="NUMAR_MATRICOL" id="NUMAR_MATRICOL" >
+            </div>
+        
+            <div class="form-group">
+                <label for="NUME">Nume</label>
+                <input class="form-control" name="NUME" id="NUME" >
+            </div>
+        
+            <div class="form-group">
+                <label for="PRENUME">Prenume</label>
+                <input class="form-control" name="PRENUME" id="PRENUME" >
+            </div>
+        
+            <div class="form-group">
+                <label for="ID_FACULTATE">Id Facultate</label>
+                <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
+            </div>
+        
+            <div class="form-group">
+                <label for="ID_INDRUMATOR">Id Indrumator</label>
+                <input class="form-control" name="ID_INDRUMATOR" id="ID_INDRUMATOR" >
+            </div>
+        
+            <input type="hidden" name="tabel" id="tabel" value="ELEVI">
+        {% endif %}
+        {% if type == "profesori" %}
+        
+        <div class="form-group">
+            <label for="ID_PROFESOR">Id Profesor</label>
+            <input class="form-control" name="ID_PROFESOR" id="ID_PROFESOR" >
+        </div>
+        
+        <div class="form-group">
+            <label for="ID_FACULTATE">Id Facultate</label>
+            <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
+        </div>
+        
+        <div class="form-group">
+            <label for="NR_MATERII">Numar Materii</label>
+            <input class="form-control" name="NR_MATERII" id="NR_MATERII" >
+        </div>
+        
+        <div class="form-group">
+            <label for="SALARIU">Salariu</label>
+            <input class="form-control" name="SALARIU" id="SALARIU" >
+        </div>
+        
+        <input type="hidden" name="tabel" id="tabel" value="PROFESORI">
+        
+        {% endif %}
+        {% if type == "facultati" %}
+        
+            <div class="form-group">
+                <label for="ID_FACULTATE">Id Facultate</label>
+                <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
+            </div>
+        
+            <div class="form-group">
+                <label for="NR_MAXIM_PROFESORI">Numar maxim profesori</label>
+                <input class="form-control" name="NR_MAXIM_PROFESORI" id="NR_MAXIM_PROFESORI" >
+            </div>
+        
+            <div class="form-group">
+                <label for="NR_ELEVI">Numar maxim elevi</label>
+                <input class="form-control" name="NR_ELEVI" id="NR_ELEVI" >
+            </div>
+        
+            <div class="form-group">
+                <label for="LOCATIE">Locatie</label>
+                <input class="form-control" name="LOCATIE" id="LOCATIE" >
+            </div>
+        
+            <input type="hidden" name="tabel" id="tabel" value="FACULTATI">
+        
+        {% endif %}
+        {% if type == "cataloage" %}
+        
+            
+        
+            <div class="form-group">
+                <label for="NUMAR_MATRICOL">Numar Matricol</label>
+                <input class="form-control" name="NUMAR_MATRICOL" id="NUMAR_MATRICOL" >
+            </div>
+        
+            <div class="form-group">
+                <label for="ULTIMA_MEDIE">Ultima Medie</label>
+                <input class="form-control" name="ULTIMA_MEDIE" id="ULTIMA_MEDIE" >
+            </div>
+        
+            <input type="hidden" name="tabel" id="tabel" value="CATALOAGE">
+        
+        {% endif %}
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/" class="btn btn-danger">CANCEL</a>
+        
+        </form>
 
-    <div class="form-group">
-        <label for="NUME">Nume</label>
-        <input class="form-control" name="NUME" id="NUME" >
-    </div>
-
-    <div class="form-group">
-        <label for="PRENUME">Prenume</label>
-        <input class="form-control" name="PRENUME" id="PRENUME" >
-    </div>
-
-    <div class="form-group">
-        <label for="ID_FACULTATE">Id Facultate</label>
-        <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
-    </div>
-
-    <div class="form-group">
-        <label for="ID_INDRUMATOR">Id Indrumator</label>
-        <input class="form-control" name="ID_INDRUMATOR" id="ID_INDRUMATOR" >
-    </div>
-
-    <input type="hidden" name="tabel" id="tabel" value="ELEVI">
-{% endif %}
-{% if type == "profesori" %}
-
-<div class="form-group">
-    <label for="ID_PROFESOR">Id Profesor</label>
-    <input class="form-control" name="ID_PROFESOR" id="ID_PROFESOR" >
 </div>
 
-<div class="form-group">
-    <label for="ID_FACULTATE">Id Facultate</label>
-    <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
-</div>
 
-<div class="form-group">
-    <label for="NR_MATERII">Numar Materii</label>
-    <input class="form-control" name="NR_MATERII" id="NR_MATERII" >
-</div>
-
-<div class="form-group">
-    <label for="SALARIU">Salariu</label>
-    <input class="form-control" name="SALARIU" id="SALARIU" >
-</div>
-
-<input type="hidden" name="tabel" id="tabel" value="PROFESORI">
-
-{% endif %}
-{% if type == "facultati" %}
-
-    <div class="form-group">
-        <label for="ID_FACULTATE">Id Facultate</label>
-        <input class="form-control" name="ID_FACULTATE" id="ID_FACULTATE" >
-    </div>
-
-    <div class="form-group">
-        <label for="NR_MAXIM_PROFESORI">Numar maxim profesori</label>
-        <input class="form-control" name="NR_MAXIM_PROFESORI" id="NR_MAXIM_PROFESORI" >
-    </div>
-
-    <div class="form-group">
-        <label for="NR_ELEVI">Numar maxim elevi</label>
-        <input class="form-control" name="NR_ELEVI" id="NR_ELEVI" >
-    </div>
-
-    <div class="form-group">
-        <label for="LOCATIE">Locatie</label>
-        <input class="form-control" name="LOCATIE" id="LOCATIE" >
-    </div>
-
-    <input type="hidden" name="tabel" id="tabel" value="FACULTATI">
-
-{% endif %}
-{% if type == "cataloage" %}
-
-    
-
-    <div class="form-group">
-        <label for="NUMAR_MATRICOL">Numar Matricol</label>
-        <input class="form-control" name="NUMAR_MATRICOL" id="NUMAR_MATRICOL" >
-    </div>
-
-    <div class="form-group">
-        <label for="ULTIMA_MEDIE">Ultima Medie</label>
-        <input class="form-control" name="ULTIMA_MEDIE" id="ULTIMA_MEDIE" >
-    </div>
-
-    <input type="hidden" name="tabel" id="tabel" value="CATALOAGE">
-
-{% endif %}
-
-<button type="submit" class="btn btn-primary">Submit</button>
-<a href="/" class="btn btn-danger">CANCEL</a>
-
-</form>
 
 {% endblock %}

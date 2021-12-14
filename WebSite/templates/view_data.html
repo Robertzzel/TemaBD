@@ -6,49 +6,51 @@
 
 
 {% block body %}
-<table class="table">
-    <thead>
-        <tr>
-            {% if type == "elevi" %}
-                <th>Numar Matricol</th>
-                <th>Nume</th>
-                <th>Prenume</th>
-                <th>Id Facultate</th>
-                <th>Id Indrumator</th>
-            {% endif %}
-            {% if type == "profesori" %}
-                <th>Id Profesor</th>
-                <th>Id Facultate</th>
-                <th>Numar Materii</th>
-                <th>Salariu</th>
-            {% endif %}
-            {% if type == "facultati" %}
-                <th>Id Facultate</th>
-                <th>Numar maxim profesori</th>
-                <th>Numar Elevi</th>
-                <th>Locatie</th>
-            {% endif %}
-            {% if type == "cataloage" %}
-                <th>Numar Matricol</th>
-                <th>Ultima Medie</th>
-            {% endif %}
-            <th>ACTIUNE</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for table_entry in data %}
+<div class="container">
+    <table class="table">
+        <thead>
             <tr>
-                {% for entry in table_entry %}
-                    <th>{{entry}}</th>
-                {% endfor %}
-                <th>
-                    <a class="btn btn-danger" href="sterge/{{type}}/{{table_entry[0]}}">STERGE</a>
-                    <a class="btn btn-warning" href="modifica/{{type}}/{{table_entry[0]}}">MODIFICA</a>
-                </th>
+                {% if type == "elevi" %}
+                    <th>Numar Matricol</th>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Id Facultate</th>
+                    <th>Id Indrumator</th>
+                {% endif %}
+                {% if type == "profesori" %}
+                    <th>Id Profesor</th>
+                    <th>Id Facultate</th>
+                    <th>Numar Materii</th>
+                    <th>Salariu</th>
+                {% endif %}
+                {% if type == "facultati" %}
+                    <th>Id Facultate</th>
+                    <th>Numar maxim profesori</th>
+                    <th>Numar Elevi</th>
+                    <th>Locatie</th>
+                {% endif %}
+                {% if type == "cataloage" %}
+                    <th>Numar Matricol</th>
+                    <th>Ultima Medie</th>
+                {% endif %}
+                <th>ACTIUNE</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for table_entry in data %}
+                <tr>
+                    {% for entry in table_entry %}
+                        <th>{{entry}}</th>
+                    {% endfor %}
+                    <th>
+                        <a class="btn btn-danger" href="sterge/{{type}}/{{table_entry[0]}}">STERGE</a>
+                        <a class="btn btn-warning" href="modifica/{{type}}/{{table_entry[0]}}">MODIFICA</a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-<a class="btn btn-dark" href="/adaugare/{{type}}">ADAUGA</a>
+    <a class="btn btn-dark" href="/adaugare/{{type}}">ADAUGA</a>
+</div>
 {% endblock %}
