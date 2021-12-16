@@ -16,10 +16,33 @@
     </div>
 
       {% for i in range(1,len) %}
-      <div class="form-group">
+        {% if tabela == 'elevi' and headers[i] == 'ID_FACULTATE': %}
           <label for="{{headers[i]}}">{{headers[i]}}</label>
-          <input type="text" class="form-control" id="{{headers[i]}}" name="{{headers[i]}}" placeholder="{{data[i]}}" value="{{data[i]}}">
-      </div>
+          <select class="form-select" name="{{headers[i]}}" >
+            {% for posibilitate in posibilitati_inputuri['facultati'] %}
+              <option value="{{posibilitate}}">{{posibilitate}}</option>
+            {% endfor %}
+          </select>
+        {% elif tabela == 'elevi' and headers[i] == 'ID_INDRUMATOR': %}
+          <label for="{{headers[i]}}">{{headers[i]}}</label>
+          <select class="form-select" name="{{headers[i]}}" >
+            {% for posibilitate in posibilitati_inputuri['profesori'] %}
+              <option value="{{posibilitate}}">{{posibilitate}}</option>
+            {% endfor %}
+          </select>
+        {% elif tabela == 'profesori' and headers[i] == 'ID_FACULTATE': %}
+          <label for="{{headers[i]}}">{{headers[i]}}</label>
+          <select class="form-select" name="{{headers[i]}}" >
+            {% for posibilitate in posibilitati_inputuri['facultati'] %}
+              <option value="{{posibilitate}}">{{posibilitate}}</option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <div class="form-group">
+              <label for="{{headers[i]}}">{{headers[i]}}</label>
+              <input type="text" class="form-control" id="{{headers[i]}}" name="{{headers[i]}}" placeholder="{{data[i]}}" value="{{data[i]}}">
+          </div>
+        {% endif %}
       {% endfor %}
 
       <input type="hidden" class="form-control" name="tabel" id="tabel" value="{{tabela}}">

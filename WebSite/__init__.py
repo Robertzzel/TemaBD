@@ -58,6 +58,7 @@ def verificare_input(tabel: str, lista_parametri) -> bool:
         if id_facultate.isalpha() or int(id_facultate) not in lista_id_facultate: return False
         if nr_materii_predate.isalpha(): return False
         if salariu.isalpha(): return False
+        return True
 
     elif tabel.upper() == "FACULTATI":
         id_facultate = lista_parametri[0]
