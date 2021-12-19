@@ -7,7 +7,7 @@
 
 {% block body %}
 <div class="container text-center">
-    <a class="btn btn-dark mt-2 mb-2" href="/adaugare/{{type}}">ADAUGA</a>
+    <a class="btn btn-adaugare mt-2 mb-2" href="/adaugare/{{type}}">ADAUGA</a>
     <table class="table">
         <thead>
             <tr>
@@ -41,12 +41,12 @@
             {% for table_entry in data %}
                 <tr>
                     {% for entry in table_entry %}
-                        <th>{{entry}}</th>
+                        <td>{{entry}}</td>
                     {% endfor %}
-                    <th>
-                        <a class="btn btn-danger" href="sterge/{{type}}/{{table_entry[0]}}">STERGE</a>
-                        <a class="btn btn-warning" href="modifica/{{type}}/{{table_entry[0]}}">MODIFICA</a>
-                    </th>
+                    <td>
+                        <a class="btn btn-stergere" href="sterge/{{type}}/{{table_entry[0]}}">STERGE</a>
+                        <a class="btn btn-modificare" href="modifica/{{type}}/{{table_entry[0]}}">MODIFICA</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,44 @@
+.div-navbar{
+    background-color: #1e3d59;
+}
+
+.navbar-link{
+    color: #f5f0e1;
+}
+
+.btn-adaugare{
+    background-color: #1e3d59;
+    color: #edf5e1;
+}
+
+.btn-stergere{
+    background-color: #ff6e40;
+    color: #edf5e1;
+}
+
+.btn-modificare{
+    background-color: #ffc13b;
+    color: #edf5e1;
+}
+
+th{
+    color: #1e3d59;
+}
+
+td{
+    color: #1e3d59;
+}
+
+.jumbotron-stanga{
+    margin-top: 220px;
+    background-color: #ff6e40;
+}
+
+.jumbotron-dreapta{
+    margin-top: 220px;
+    background-color: #ffc13b;
+}
+
+body{
+    background-color: #f5f0e1;
+}
