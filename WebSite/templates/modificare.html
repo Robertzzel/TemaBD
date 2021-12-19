@@ -8,37 +8,43 @@
 {% block body %}
 
 <div class="container">
-  <form action="" method="POST">
+  <form class="mt-5" action="" method="POST">
 
-    <div class="form-group">
+    <div class="form-group mt-1">
       <label for="{{headers[0]}}">{{headers[0]}}</label>
       <input class="form-control" name="{{headers[0]}}" id="{{headers[0]}}" placeholder="{{data[0]}}" value="{{data[0]}}" readonly>
     </div>
 
       {% for i in range(1,len) %}
         {% if tabela == 'elevi' and headers[i] == 'ID_FACULTATE': %}
-          <label for="{{headers[i]}}">{{headers[i]}}</label>
-          <select class="form-select" name="{{headers[i]}}" >
-            {% for posibilitate in posibilitati_inputuri['facultati'] %}
-              <option value="{{posibilitate}}">{{posibilitate}}</option>
-            {% endfor %}
-          </select>
+          <div class="form-group mt-1">
+            <label for="{{headers[i]}}">{{headers[i]}}</label>
+            <select class="form-select" name="{{headers[i]}}" >
+              {% for posibilitate in posibilitati_inputuri['facultati'] %}
+                <option value="{{posibilitate}}">{{posibilitate}}</option>
+              {% endfor %}
+            </select>
+          </div>
         {% elif tabela == 'elevi' and headers[i] == 'ID_INDRUMATOR': %}
-          <label for="{{headers[i]}}">{{headers[i]}}</label>
-          <select class="form-select" name="{{headers[i]}}" >
-            {% for posibilitate in posibilitati_inputuri['profesori'] %}
-              <option value="{{posibilitate}}">{{posibilitate}}</option>
-            {% endfor %}
-          </select>
+          <div class="form-group mt-1">
+            <label for="{{headers[i]}}">{{headers[i]}}</label>
+            <select class="form-select" name="{{headers[i]}}" >
+              {% for posibilitate in posibilitati_inputuri['profesori'] %}
+                <option value="{{posibilitate}}">{{posibilitate}}</option>
+              {% endfor %}
+            </select>
+          </div>
         {% elif tabela == 'profesori' and headers[i] == 'ID_FACULTATE': %}
-          <label for="{{headers[i]}}">{{headers[i]}}</label>
-          <select class="form-select" name="{{headers[i]}}" >
-            {% for posibilitate in posibilitati_inputuri['facultati'] %}
-              <option value="{{posibilitate}}">{{posibilitate}}</option>
-            {% endfor %}
-          </select>
+          <div class="form-group mt-1">
+             <label for="{{headers[i]}}">{{headers[i]}}</label>
+              <select class="form-select" name="{{headers[i]}}" >
+                {% for posibilitate in posibilitati_inputuri['facultati'] %}
+                  <option value="{{posibilitate}}">{{posibilitate}}</option>
+                {% endfor %}
+              </select>
+          </div>
         {% else %}
-          <div class="form-group">
+          <div class="form-group mt-1">
               <label for="{{headers[i]}}">{{headers[i]}}</label>
               <input type="text" class="form-control" id="{{headers[i]}}" name="{{headers[i]}}" placeholder="{{data[i]}}" value="{{data[i]}}">
           </div>
@@ -47,8 +53,12 @@
 
       <input type="hidden" class="form-control" name="tabel" id="tabel" value="{{tabela}}">
 
+    <div class="mt-3">
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a href="/" class="btn btn-danger">CANCEL</a>
+      <a href="/" class="btn btn-danger ml-2">CANCEL</a>
+    </div>
+
+
   </form>
 </div>
 

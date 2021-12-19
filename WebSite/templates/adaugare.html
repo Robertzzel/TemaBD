@@ -9,7 +9,7 @@
 
 <div class="container">
 
-    <form action="" method="POST">
+    <form class="mt-5" action="" method="POST">
 
         {% if type == "elevi" %}
         
@@ -107,12 +107,11 @@
             <input type="hidden" name="tabel" id="tabel" value="CATALOAGE">
         
         {% endif %}
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/" class="btn btn-danger">CANCEL</a>
-        
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/" class="btn btn-danger">CANCEL</a>
+        </div>
         </form>
-
 </div>
 
 
